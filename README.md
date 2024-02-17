@@ -1,10 +1,11 @@
 # Gmail Clone
 
-Gmail'in mail ekleme - silme, 
-açılır kapanır sol bar, 
-arama filtreleme,
-gönderi oluşturma özelliklerinin bulunduğu
-bir clone projesidir.
+Gmail'in 
+- mail ekleme - silme, 
+- açılır kapanır sol bar, 
+- arama filtreleme,
+- gönderi oluşturma 
+özelliklerinin bulunduğu bir clone projesidir.
 
 # Kullanılan Teknolojiler
 
