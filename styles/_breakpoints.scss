@@ -1,0 +1,6 @@
+/* mobil cihazlar için mixin */
+@mixin sm{
+    @media (max-width: 768px) {
+        @content /* include ile gönderilen stillerin aktarımı için */
+    }
+}

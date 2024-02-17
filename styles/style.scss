@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+@import 'variables';
+@import 'breakpoints';
+@import 'modal';
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #f6f8fc;
+}
+
+header {
+    @extend .between;
+    padding: 20px;
+    gap: 20px;
+    font-size: 20px;
+
+    .left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        img {
+            width: 50px;
+        }
+
+        i {
+            font-size: 30px;
+        }
+    }
+
+    .middle {
+        form {
+            display: flex;
+            background: rgb(243, 243, 243);
+            padding: 6px 9px;
+            border-radius: 10px;
+
+            input {
+                border: none;
+                outline: none;
+                font-size: 18px;
+                background: transparent;
+                padding-left: 5px;
+            }
+        }
+
+        @include sm() {
+            display: none;
+        }
+    }
+
+    .right {
+        @extend .between;
+        gap: 10px;
+
+        i {
+            @extend .icon
+        }
+
+        img {
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+        }
+    }
+}
+
+section {
+    display: flex;
+    gap: 20px;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    gap: 40px;
+
+    @include sm{
+        padding: 0;
+        padding-left: 6px;
+    }
+
+    .create {
+        background: $light-blue;
+        border-radius: 10px;
+        padding: 10px;
+        display: flex;
+        gap: 20px;
+        cursor: pointer;
+        transition: box-shadow 0.3s;
+
+        &:hover {
+            box-shadow: 1px 3px 10px gray;
+        }
+    }
+
+    ul {
+        display: grid;
+        gap: 15px;
+
+        li {
+            padding: 8px;
+            margin-left: 4px;
+            display: flex;
+            gap: 10px;
+            border-radius: 0 15px 15px 0;
+
+            &:hover {
+                background: $light-blue;
+            }
+        }
+    }
+
+    .bottom {
+        margin-left: 12px;
+    }
+}
+
+// js ile eklediğim 'hide' classı aktif ise
+// bütün yazıları kaldır.
+.hide {
+    span {
+        display: none;
+    }
+}
+
+main {
+    flex-grow: 1;
+    
+    /* küçük cihazlarda yan barı kaldır */
+    @include sm{
+        margin-right: 20px
+    }
+
+    .top {
+        @extend .between;
+        background: white;
+        border-radius: 10px 10px 0 0;
+        padding: 8px 16px;
+
+        i {
+            @extend .icon;
+        }
+
+        .left,
+        .right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+    }
+
+    .mails {
+        background: $gray;
+        height: 80vh;
+    }
+}
+
+.mail {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    font-size: 16px;
+    padding: 10px;
+    border-bottom: 1px solid white;
+    column-gap: 5px;
+    gap: 25px;
+    cursor: pointer;
+
+    &:hover {
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+    }
+
+    .info {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .content {
+        display: flex;
+        gap: 5px;
+        white-space: nowrap;
+        align-items: center;
+        overflow: hidden;
+        /* taşan yazıları gizleme */
+        text-overflow: ellipsis;
+
+        .title {
+            font-weight: 500;
+        }
+
+        .description {
+            overflow: hidden;
+            white-space: nowrap;
+            /* tek satırda olmasını sağlar */
+            text-overflow: ellipsis;
+            /* taşan yazı var ise ... ekle */
+        }
+    }
+
+    .time {
+        text-align: end;
+        white-space: nowrap;
+    }
+
+    /* mail hover olduğunda sil butonu göster */
+    #button-wrapper{
+        display: none;
+    }
+
+    button {
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        transition: all 0.5s;
+        padding: 4px 10px;
+        border-radius: 5px;
+
+        &:hover {
+            background: rgb(215, 215, 215);
+        }
+    }
+
+    &:hover> #button-wrapper {
+        display: flex;
+        justify-content: end;
+    }
+
+    &:hover>.time {
+        display: none;
+    }
+}
+
+aside {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    padding: 12px;
+
+    span{
+        background: $dark-gray;
+        height: 2px;
+        width: 100%;
+    }
+
+    img{
+        @extend .icon;
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+    }
+    @include sm{
+        display: none;
+    }
+}
+
+.warn{
+    padding-top: 50px;
+    text-align: center;
+}

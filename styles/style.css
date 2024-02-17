@@ -1,0 +1,317 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+/* değişkenler */
+.between, main .top, header .right, header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.icon, aside img, main .top i, header .right i {
+  width: 35px;
+  height: 35px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.icon:hover, aside img:hover, main .top i:hover, header .right i:hover {
+  background: #d8dbdd;
+}
+
+/* mobil cihazlar için mixin */
+.modal-wrapper {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.361);
+  /* top: 0 left: 0 'dan farkı tüm köşelere 0 verir. */
+  inset: 0;
+  display: none;
+  place-items: center;
+}
+.modal-wrapper .modal {
+  background: white;
+  width: 80%;
+  max-width: 700px;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+}
+.modal-wrapper .modal .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: rgb(190, 190, 190);
+  border-radius: 10px 10px 0 0;
+}
+.modal-wrapper .modal .header button {
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.modal-wrapper .modal .header button:hover {
+  background: gray;
+  color: white;
+}
+.modal-wrapper .modal input {
+  border: none;
+  border-bottom: 1px solid gray;
+  padding: 10px;
+  margin: 0 6px;
+  outline: none;
+}
+.modal-wrapper .modal textarea {
+  width: 100%;
+  height: 100%;
+  border: none;
+  /* textarea büyüme küçülme kapatma */
+  resize: none;
+  outline: none;
+  font-family: "roboto";
+  padding-top: 10px;
+  padding: 10px;
+}
+.modal-wrapper .modal #send {
+  width: 140px;
+  border: none;
+  padding: 14px;
+  border-radius: 50px;
+  background: #1b61d1;
+  color: white;
+  cursor: pointer;
+  margin: 10px;
+}
+.modal-wrapper .modal #send:hover {
+  background: #376ec8;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background: #f6f8fc;
+}
+
+header {
+  padding: 20px;
+  gap: 20px;
+  font-size: 20px;
+}
+header .left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+header .left img {
+  width: 50px;
+}
+header .left i {
+  font-size: 30px;
+}
+header .middle form {
+  display: flex;
+  background: rgb(243, 243, 243);
+  padding: 6px 9px;
+  border-radius: 10px;
+}
+header .middle form input {
+  border: none;
+  outline: none;
+  font-size: 18px;
+  background: transparent;
+  padding-left: 5px;
+}
+@media (max-width: 768px) {
+  header .middle {
+    display: none;
+  }
+}
+header .right {
+  gap: 10px;
+}
+header .right img {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+}
+
+section {
+  display: flex;
+  gap: 20px;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  gap: 40px;
+}
+@media (max-width: 768px) {
+  nav {
+    padding: 0;
+    padding-left: 6px;
+  }
+}
+nav .create {
+  background: #d0ebff;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  gap: 20px;
+  cursor: pointer;
+  transition: box-shadow 0.3s;
+}
+nav .create:hover {
+  box-shadow: 1px 3px 10px gray;
+}
+nav ul {
+  display: grid;
+  gap: 15px;
+}
+nav ul li {
+  padding: 8px;
+  margin-left: 4px;
+  display: flex;
+  gap: 10px;
+  border-radius: 0 15px 15px 0;
+}
+nav ul li:hover {
+  background: #d0ebff;
+}
+nav .bottom {
+  margin-left: 12px;
+}
+
+.hide span {
+  display: none;
+}
+
+main {
+  flex-grow: 1;
+  /* küçük cihazlarda yan barı kaldır */
+}
+@media (max-width: 768px) {
+  main {
+    margin-right: 20px;
+  }
+}
+main .top {
+  background: white;
+  border-radius: 10px 10px 0 0;
+  padding: 8px 16px;
+}
+main .top .left,
+main .top .right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+main .mails {
+  background: #e9ecef;
+  height: 80vh;
+}
+
+.mail {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  font-size: 16px;
+  padding: 10px;
+  border-bottom: 1px solid white;
+  -moz-column-gap: 5px;
+       column-gap: 5px;
+  gap: 25px;
+  cursor: pointer;
+  /* mail hover olduğunda sil butonu göster */
+}
+.mail:hover {
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+}
+.mail .info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.mail .content {
+  display: flex;
+  gap: 5px;
+  white-space: nowrap;
+  align-items: center;
+  overflow: hidden;
+  /* taşan yazıları gizleme */
+  text-overflow: ellipsis;
+}
+.mail .content .title {
+  font-weight: 500;
+}
+.mail .content .description {
+  overflow: hidden;
+  white-space: nowrap;
+  /* tek satırda olmasını sağlar */
+  text-overflow: ellipsis;
+  /* taşan yazı var ise ... ekle */
+}
+.mail .time {
+  text-align: end;
+  white-space: nowrap;
+}
+.mail #button-wrapper {
+  display: none;
+}
+.mail button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.5s;
+  padding: 4px 10px;
+  border-radius: 5px;
+}
+.mail button:hover {
+  background: rgb(215, 215, 215);
+}
+.mail:hover > #button-wrapper {
+  display: flex;
+  justify-content: end;
+}
+.mail:hover > .time {
+  display: none;
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  padding: 12px;
+}
+aside span {
+  background: #495057;
+  height: 2px;
+  width: 100%;
+}
+aside img {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+}
+@media (max-width: 768px) {
+  aside {
+    display: none;
+  }
+}
+
+.warn {
+  padding-top: 50px;
+  text-align: center;
+}/*# sourceMappingURL=style.css.map */
