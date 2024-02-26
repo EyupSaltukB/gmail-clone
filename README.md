@@ -10,6 +10,7 @@ Gmail'in
 # Kullanılan Teknolojiler
 
 - JS
+- SCSS
 - CSS
 - HTML
 
